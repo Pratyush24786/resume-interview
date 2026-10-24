@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://resume-interview-analyzer.pratyushk824-786.workers.dev/sitemap.xml

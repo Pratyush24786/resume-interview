@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "careermatch-interview-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-24",
+  "vars": {
+    "ALLOWED_ORIGIN": "https://resume-interview-analyzer.pratyushk824-786.workers.dev",
+    "OPENAI_MODEL": "gpt-6-luna"
+  }
+}

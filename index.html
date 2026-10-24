@@ -1,0 +1,739 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Free Resume Analyzer & ATS Resume Checker | CareerMatch</title>
+
+<meta name="description" content="Use this free resume analyzer to compare your resume with a job description, spot matching skills and keyword gaps, and prepare for interviews in your browser.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://resume-interview-analyzer.pratyushk824-786.workers.dev/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Resume Analyzer & ATS Resume Checker | CareerMatch">
+<meta property="og:description" content="Compare your resume with a job description, review skill and keyword gaps, and prepare for interviews with a free browser-based report with optional AI interview practice.">
+<meta property="og:url" content="https://resume-interview-analyzer.pratyushk824-786.workers.dev/">
+<meta property="og:site_name" content="CareerMatch">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Resume Analyzer & ATS Resume Checker | CareerMatch">
+<meta name="twitter:description" content="Compare your resume with a job description, review skill gaps, and prepare for interviews for free in your browser.">
+<link rel="stylesheet" href="style.css">
+
+
+
+
+
+
+
+
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CareerMatch",
+  "url": "https://resume-interview-analyzer.pratyushk824-786.workers.dev/",
+  "description": "Free browser-based resume analyzer and ATS resume checker that compares resumes with job descriptions, identifies skill gaps, and helps users prepare for interviews.",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Career Development",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Resume analysis",
+    "ATS resume checking",
+    "Resume and job description matching",
+    "Missing keyword identification",
+    "Skill gap analysis",
+    "Interview question preparation"
+  ]
+}
+</script>
+
+<meta name="theme-color" content="#096b68">
+</head>
+
+<body>
+
+<main class="shell">
+
+<nav aria-label="Main navigation">
+  <a class="logo" href="#top">Career<span>Match</span></a>
+
+  <div class="nav-links">
+    <a href="/resources">Guides</a>
+    <a href="/interview-questions">Interview questions</a>
+    <a href="#analyzer" class="nav-cta">
+      Try free
+    </a>
+  </div>
+</nav>
+
+<section id="top" class="hero">
+
+  <div class="hero-copy">
+
+    <p class="eyebrow">YOUR PRIVATE CAREER COACH</p>
+
+    <h1>CareerMatch &amp; <em>Free AI Resume Analyzer & Job Matcher</em></h1>
+
+    <p class="lead">
+      CareerMatch compares your resume with a job description, identifies matching skills and keyword gaps, and helps you prepare for interviews. Free, with a browser-based report and optional AI interview practice.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#analyzer" class="primary-link">
+        Analyse my résumé <span>→</span>
+      </a>
+
+      <span class="free-note">Free · No account required</span>
+    </div>
+
+    <div class="trust">
+      <span>✓ Private résumé report</span>
+      <span>✓ Instant report</span>
+      <span>✓ PDF, DOCX &amp; TXT</span>
+    </div>
+
+  </div>
+
+  <div class="preview-card" aria-label="Example job match report">
+
+    <div class="preview-top">
+      <span class="mini-logo">CareerMatch</span>
+      <span class="pill">Sample</span>
+    </div>
+
+    <p class="preview-label">ILLUSTRATIVE MATCH REPORT</p>
+
+    <div class="preview-score">
+      <strong>78%</strong>
+      <span>
+        Illustrative match<br>
+        for this role
+      </span>
+    </div>
+
+    <div class="preview-line">
+      <span>Skills matched</span>
+      <b>7 / 9</b>
+    </div>
+
+    <div class="bar">
+      <i></i>
+    </div>
+
+    <div class="preview-tags">
+      <span>Python</span>
+      <span>SQL</span>
+      <span>Communication</span>
+    </div>
+
+    <p class="preview-tip">
+      Next: prepare one story showing your biggest impact.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="analyzer" id="analyzer">
+
+  <div class="analyzer-heading">
+
+    <p class="eyebrow">YOUR FREE REPORT</p>
+
+    <h2>Analyze Your Resume Against a Job Description</h2>
+
+    <p>
+      Upload your resume and paste a job description to identify matching skills,
+      missing keywords, and interview topics you should prepare for.
+    </p>
+
+  </div>
+
+  <form id="analysisForm">
+
+    <div class="field">
+
+      <label for="resume">
+        <b>01</b> Upload résumé
+      </label>
+
+      <input
+        id="resume"
+        type="file"
+        accept=".pdf,.docx,.txt"
+        required
+      >
+
+      <small>
+        Maximum file size: 5 MB
+      </small>
+
+    </div>
+
+    <div class="field">
+
+      <label for="jobDescription">
+        <b>02</b> Paste job description
+        <em>(recommended)</em>
+      </label>
+
+      <textarea
+        id="jobDescription"
+        rows="8"
+        placeholder="Paste the job requirements, responsibilities, and desired skills here…"
+      ></textarea>
+
+    </div>
+
+    <button id="analyzeButton" type="submit">
+      Create my career report <span>→</span>
+    </button>
+
+    <p id="status" class="status" aria-live="polite"></p>
+
+  </form>
+
+</section>
+
+<section id="report" class="report hidden">
+
+  <header class="report-head">
+
+    <div>
+
+      <p class="eyebrow">YOUR CAREER REPORT</p>
+
+      <h2 id="candidateName">
+        Résumé analysis
+      </h2>
+
+      <p id="reportMeta"></p>
+
+    </div>
+
+    <div class="actions">
+
+      <button id="printReport" type="button">Print report</button>
+
+      <button id="downloadScoreCard" type="button" class="linkedin-share">
+        Download my score card
+      </button>
+
+      <button id="shareLinkedIn" type="button" class="linkedin-share">
+        Share score card on LinkedIn ↗
+      </button>
+
+      <button id="startOver" class="text-button">
+        New analysis
+      </button>
+
+    </div>
+
+  </header>
+
+  <div class="score-card">
+
+    <div class="score">
+
+      <span id="matchScore">—</span>
+
+      <small>
+        job match
+      </small>
+
+    </div>
+
+    <div>
+
+      <h3 id="scoreTitle">
+        Your interview brief is ready
+      </h3>
+
+      <p id="scoreText">
+        Add a job description to see your skills match.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <section class="card match-card">
+
+      <h3>Skills match</h3>
+
+      <p class="muted">
+        Skills recognised in both your résumé and the job description.
+      </p>
+
+      <div id="matchedSkills" class="tags"></div>
+
+    </section>
+
+    <section class="card gap-card">
+
+      <h3>Skills to improve</h3>
+
+      <p class="muted">
+        Mention these only if you can truthfully explain how you are learning or using them.
+      </p>
+
+      <div id="missingSkills" class="tags"></div>
+
+    </section>
+
+    <section class="card wide" id="keywordOptimizer">
+      <p class="eyebrow">LIVE EDIT MODE</p>
+      <h3>Close your keyword gaps truthfully</h3>
+      <p class="muted">Edit a working copy of your résumé. A skill only counts when it is genuinely part of your experience.</p>
+      <div class="live-editor">
+        <label for="resumeEditor">Your editable résumé text</label>
+        <textarea id="resumeEditor" rows="15" spellcheck="true"></textarea>
+        <aside>
+          <strong>Keyword checklist</strong>
+          <p id="liveScore" class="muted"></p>
+          <ul id="keywordChecklist" class="keyword-checklist"></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="card wide" id="impactRewriter">
+      <p class="eyebrow">IMPACT &amp; QUANTIFIABLE METRICS</p>
+      <h3>Rewrite a weak bullet with a STAR structure</h3>
+      <p class="muted">These are writing prompts, not facts. Replace every bracketed placeholder with evidence you can support.</p>
+      <div id="weakBullets" class="weak-bullets"></div>
+      <div id="rewriteResults" class="rewrite-results" aria-live="polite"></div>
+    </section>
+
+    <section class="card wide" id="atsPreview">
+      <p class="eyebrow">FORMAT-RISK PREVIEW</p>
+      <h3>Common parsing risks in ATS-style applications</h3>
+      <p class="muted">This is an educational simulation, not a view of any proprietary system. It highlights common risks that can affect Workday-style, Greenhouse-style, Lever-style, and SAP SuccessFactors-style application forms.</p>
+      <div class="ats-tabs" role="tablist" aria-label="ATS-style parsing previews">
+        <button type="button" class="ats-tab active" data-ats="workday" role="tab">Workday-style</button>
+        <button type="button" class="ats-tab" data-ats="greenhouse" role="tab">Greenhouse-style</button>
+        <button type="button" class="ats-tab" data-ats="lever" role="tab">Lever-style</button>
+        <button type="button" class="ats-tab" data-ats="sap" role="tab">SAP SuccessFactors-style</button>
+      </div>
+      <div id="atsParsedPreview" class="ats-preview" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+
+      <h3>
+        Skills from your résumé
+      </h3>
+
+      <div id="resumeSkills"></div>
+
+    </section>
+
+    <section class="card">
+
+      <h3>
+        Interview questions to practise
+      </h3>
+
+      <ol id="questions"></ol>
+
+      <div id="flashcards" class="flashcards" aria-live="polite"></div>
+
+    </section>
+
+    <section class="card wide" id="aiInterview">
+      <p class="eyebrow">VOICE MOCK INTERVIEW</p>
+      <h3>Practise a complete interview</h3>
+      <p class="muted">Start with an introduction, discuss your strongest résumé project, answer a DBMS or OOP question, then solve a coding problem and explain its complexity.</p>
+      <div class="interview-settings">
+        <label for="interviewType">Interview style</label>
+        <select id="interviewType">
+          <option value="behavioral">Behavioral + technical</option>
+          <option value="technical">Technical</option>
+          <option value="general">General</option>
+        </select>
+        <label for="interviewLevel">Experience level</label>
+        <select id="interviewLevel">
+          <option value="entry">Student / early career</option>
+          <option value="mid">Mid-career</option>
+          <option value="senior">Senior</option>
+        </select>
+      </div>
+      <label class="interview-voice-toggle"><input id="readQuestionsAloud" type="checkbox" checked> Read interviewer questions aloud</label>
+      <p class="interview-consent">Your résumé, job description, and submitted answers are sent to OpenAI to tailor the interview and provide feedback. If you use the microphone, your recording is sent to OpenAI for transcription. You can type answers instead. CareerMatch does not save interview sessions. <a href="/privacy">Read the privacy details</a>.</p>
+      <button id="startAiInterview" type="button">Start voice interview</button>
+      <div id="interviewSession" class="interview-session hidden" aria-live="polite">
+        <p id="interviewProgress" class="eyebrow"></p>
+        <h4 id="interviewQuestion"></h4>
+        <div id="spokenAnswerArea">
+          <label for="interviewAnswer">Answer by voice or type</label>
+          <div class="voice-controls"><button id="recordAnswer" class="outline" type="button">🎙 Start recording</button><span id="recordingStatus" class="muted"></span></div>
+          <textarea id="interviewAnswer" rows="5" maxlength="2500" placeholder="Use the microphone or type your answer…"></textarea>
+          <button id="submitInterviewAnswer" type="button">Submit answer</button>
+        </div>
+        <div id="codingWorkspace" class="coding-workspace hidden">
+          <label for="codingLanguage">Choose a language</label>
+          <select id="codingLanguage"><option>Python</option><option>JavaScript</option><option>Java</option><option>C++</option></select>
+          <label for="codeAnswer">Write your solution</label>
+          <textarea id="codeAnswer" rows="12" maxlength="8000" spellcheck="false" placeholder="Write your code here…"></textarea>
+          <button id="submitCode" type="button">Submit code</button>
+          <p class="muted">CareerMatch reviews your code with AI; it does not execute the code.</p>
+        </div>
+        <p id="interviewStatus" class="status" role="status"></p>
+        <div id="interviewFeedback" class="interview-feedback"></div>
+        <button id="endAiInterview" class="outline hidden" type="button">End interview</button>
+      </div>
+      <p id="interviewError" class="status" role="status"></p>
+    </section>
+
+    <section class="card wide">
+
+      <h3>
+        Your best evidence
+      </h3>
+
+      <p id="evidenceIntro" class="muted"></p>
+
+      <ul id="achievements"></ul>
+
+    </section>
+
+  </div>
+
+  <section id="offer" class="offer hidden">
+
+    <div>
+
+      <p class="eyebrow">
+        PERSONALISED HELP
+      </p>
+
+      <h3>
+        Want a human review?
+      </h3>
+
+      <p>
+        Get a tailored résumé review and practice interview session.
+      </p>
+
+    </div>
+
+    <a id="offerLink" class="offer-button" href="#">
+      Get personalised help
+    </a>
+
+  </section>
+
+  <p class="private-note">
+    This report is created in your browser. AI interview practice is optional and sends readable text to OpenAI only when you start it.
+  </p>
+
+  <div id="feedbackPanel" class="feedback hidden">
+
+    <div>
+
+      <strong>
+        Was this report useful?
+      </strong>
+
+      <span>
+        Your feedback helps make CareerMatch better for job seekers.
+      </span>
+
+    </div>
+
+    <a id="feedbackLink" href="#">
+      Share feedback
+    </a>
+
+  </div>
+
+</section>
+
+<section class="benefits" aria-labelledby="benefits-title">
+
+  <p class="eyebrow">
+    BUILT FOR REAL INTERVIEWS
+  </p>
+
+  <h2 id="benefits-title">Less guessing. Better preparation.</h2>
+
+  <div>
+
+    <article>
+
+      <span class="icon">⌁</span>
+
+      <h3>
+        Match what matters
+      </h3>
+
+      <p>
+        Focus your preparation on the skills a specific job actually asks for.
+      </p>
+
+    </article>
+
+    <article>
+
+      <span class="icon">✦</span>
+
+      <h3>
+        Tell stronger stories
+      </h3>
+
+      <p>
+        Turn your experience into clear evidence recruiters can remember.
+      </p>
+
+    </article>
+
+    <article>
+
+      <span class="icon">⌘</span>
+
+      <h3>
+        Keep it private
+      </h3>
+
+      <p>
+        Your résumé report stays in your browser. AI interview practice sends text only when you choose to start.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section class="match-guide" aria-labelledby="match-guide-title">
+  <p class="eyebrow">A CLEARER WAY TO PREPARE</p>
+  <h2 id="match-guide-title">What a resume match can—and cannot—tell you</h2>
+  <div class="match-guide-grid">
+    <article><h3>See relevant overlap</h3><p>CareerMatch compares readable resume text with the skills it recognizes in the job description, then gives you a starting point for review.</p></article>
+    <article><h3>Use the score as a guide</h3><p>The percentage reflects skill overlap in the text you provide. It is not a hiring prediction and does not represent a score from an employer’s ATS.</p></article>
+    <article><h3>Keep your claims accurate</h3><p>Review every suggested keyword. Add it to your resume only when it reflects experience you can explain truthfully.</p></article>
+  </div>
+  <p class="match-guide-link"><a href="/resume-job-description-matcher">Read the resume and job description matching guide →</a></p>
+</section>
+
+<section class="methodology" aria-labelledby="methodology-title">
+  <div class="methodology-intro">
+    <p class="eyebrow">HOW THE REPORT IS BUILT</p>
+    <h2 id="methodology-title">A transparent skills comparison, not an AI hiring score.</h2>
+    <p>CareerMatch uses a defined list of common skills and checks for those terms in the readable text of your résumé and job description. The report is a practical review aid you can verify yourself.</p>
+  </div>
+  <ol class="methodology-steps">
+    <li><b>Extract readable text</b><span>PDF, DOCX, and TXT files are read in your browser. Scanned image-only PDFs may not provide text to compare.</span></li>
+    <li><b>Find recognized skills</b><span>Skill names are matched without case sensitivity. The tool does not understand synonyms, context, proficiency, or years of experience.</span></li>
+    <li><b>Calculate overlap</b><span>The percentage is matched recognized job-description skills divided by all recognized skills in that description. It is not an employer ATS score or a prediction of interview success.</span></li>
+  </ol>
+  <p class="methodology-note">Use the results as a checklist. Confirm each finding and include a skill on your résumé only when your experience supports it. <a href="/privacy">Read the privacy details</a>.</p>
+</section>
+
+<section class="home-faq" aria-labelledby="home-faq-title">
+  <div><p class="eyebrow">QUICK ANSWERS</p><h2 id="home-faq-title">Resume analyzer questions</h2></div>
+  <div class="faq-list">
+    <details><summary>Which resume file types can I analyze?</summary><p>Upload a PDF, DOCX, or TXT resume up to 5 MB. Text-based PDFs work best; scanned image-only PDFs may not contain readable text.</p></details>
+    <details><summary>Does CareerMatch upload or store my resume?</summary><p>The match report reads your résumé in your browser and does not upload the file. AI interview practice sends readable résumé text and the job description to OpenAI. Voice recordings are sent for transcription, and submitted answers and code are sent for coaching. CareerMatch does not save interview sessions.</p></details>
+    <details><summary>Does the match score predict whether I will get hired?</summary><p>No. It estimates overlap between recognized skills in your resume and the job description. Employers use different criteria, and the score is not an ATS result or hiring prediction.</p></details>
+  </div>
+  <a class="faq-more" href="/faq">See all frequently asked questions →</a>
+</section>
+<section id="how" class="how">
+
+  <div class="how-title">
+
+    <p class="eyebrow">
+      HOW IT WORKS
+    </p>
+
+    <h2>
+      Upload. Match. <em>Interview with confidence.</em>
+    </h2>
+
+  </div>
+
+  <div class="steps">
+
+    <article>
+
+      <b>01</b>
+
+      <h3>
+        Upload
+      </h3>
+
+      <p>
+        Choose your PDF, DOCX, or TXT résumé.
+      </p>
+
+    </article>
+
+    <article>
+
+      <b>02</b>
+
+      <h3>
+        Compare
+      </h3>
+
+      <p>
+        Add the target job description to see your skills match.
+      </p>
+
+    </article>
+
+    <article>
+
+      <b>03</b>
+
+      <h3>
+        Prepare
+      </h3>
+
+      <p>
+        Save your report and practise the questions that matter.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section class="resource-promo">
+
+  <div>
+
+    <p class="eyebrow">
+      FREE CAREER RESOURCES
+    </p>
+
+    <h2>
+      Tools are only the beginning.
+    </h2>
+
+    <p>
+      Explore practical interview guides, résumé advice,
+      and role-specific question sets—all free to use.
+    </p>
+
+  </div>
+
+  <div class="resource-links">
+
+    <a href="/software-engineer-resume-analyzer">
+      Software engineer ATS checker <span>→</span>
+    </a>
+
+    <a href="/data-scientist-resume-analyzer">
+      Data scientist résumé review <span>→</span>
+    </a>
+
+    <a href="/management-consultant-resume-analyzer">
+      Management consultant résumé analyzer <span>→</span>
+    </a>
+
+    <a href="/interview-questions">
+      Interview question generator <span>→</span>
+    </a>
+
+    <a href="/resume-tips">
+      Résumé improvement guide <span>→</span>
+    </a>
+
+    <a href="/faq">
+      CareerMatch FAQ <span>→</span>
+    </a>
+
+  </div>
+
+</section>
+
+<section class="closing">
+
+  <p class="eyebrow">
+    START NOW
+  </p>
+
+  <h2>
+    Your next opportunity deserves better preparation.
+  </h2>
+
+  <a
+    href="#analyzer"
+    class="primary-link"
+  >
+    Create my free report <span>→</span>
+  </a>
+
+</section>
+<section class="launchnest-section">
+  <h2>CareerMatch on LaunchNest and sellwithboost</h2>
+  <p>Discover CareerMatch on LaunchNest and sellwithboost.</p>
+
+  <a
+    href="https://launchnest.io/p/careermatch-free-resume-analyzer-ats-resume-checker"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+  <img src="https://launchnest.io/badge/careermatch-free-resume-analyzer-ats-resume-checker.svg?variant=featured&theme=light" 
+      alt="CareerMatch on LaunchNest" width="220" height="56" />
+  <img src="https://launchnest.io/badge/careermatch-free-resume-analyzer-ats-resume-checker.svg?variant=listed&theme=light" 
+    alt="CareerMatch on LaunchNest" 
+    width="220" height="56" />
+    <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
+      <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" width="220" height="56" />
+    </a>
+  </a>
+</section>
+<footer>
+
+  <span>
+    © <span id="year"></span> CareerMatch
+  </span>
+
+  <div>
+
+    <a href="/resources">
+      Resources
+    </a>
+
+    <a href="/privacy">
+      Privacy
+    </a>
+
+    <a href="mailto:pratyushkhare786@gmail.com">Contact</a>
+
+  </div>
+
+</footer>
+
+</main>
+
+<script src="config.js"></script>
+
+<script src="https://unpkg.com/mammoth@1.8.0/mammoth.browser.min.js"></script>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
+
